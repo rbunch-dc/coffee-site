@@ -47,7 +47,8 @@ passport.deserializeUser(Account.deserializeUser());
  var mongoUrl =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost:27017/coffee';
+    'mongodb://localhost:27017/ecommerce';
+mongoose.connect(mongoUrl)
 
 
 
