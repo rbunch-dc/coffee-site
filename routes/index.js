@@ -4,7 +4,7 @@ var passport = require('passport');
 var Account = require('../models/account');
 var router = express.Router();
 var nodemailer = require('nodemailer');
-var vars = require('../config/vars.json');
+// var vars = require('../config/vars.json');
 var stripe = require("stripe")(
   "sk_test_kRmqYSFSriTO5n2dj7CrLBRI"
 );
@@ -36,9 +36,6 @@ router.post('/register', function(req, res) {
 	            return res.render('register', { err : err });
 	        }
         passport.authenticate('local')(req, res, function () {
-        	console.log('=========user object========')
-        	console.log(req.user);
-        	console.log('===================')
             req.session.username = req.body.username;
             res.render('choices', { username : req.session.username });
         });
